@@ -4,6 +4,7 @@ pipeline {
   stages {
       stage('Build Artifact') {
             steps {
+              sh "apt-get update"
               sh "sudo apt install openjdk-11-jdk -y"
               sh "java -version"
               sh "sudo apt install -y maven"
