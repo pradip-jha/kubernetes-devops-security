@@ -4,8 +4,12 @@ pipeline {
   stages {
       stage('Build Artifact') {
             steps {
+              sh "sudo apt install openjdk-11-jdk -y"
+              sh "java -version"
+              sh "sudo apt install -y maven"
+              sh "mvn -v"
               sh "mvn clean package -DskipTests=true"
-              archive 'target/*.jar' //so that they can be downloaded later
+              archive 'target/*.jar'             
             }
         }   
     }
